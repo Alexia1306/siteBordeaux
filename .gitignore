@@ -5,3 +5,8 @@
 /sitemap.*
 /wp-config.php
 *.sql
+
+
+.sass-cache
+access.log
+error.log
