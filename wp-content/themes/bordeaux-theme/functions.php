@@ -12,6 +12,48 @@ function debug($array) {
 	echo "</pre>";
 }
 
+function get_last_post_cat($cat_id) {
+	$args = array(
+		"category" => $cat_id,
+		"orderby"  => 'date',
+		"order"    => 'DESC',
+		"posts_per_page"   => 1,
+	);
+	$posts = get_posts($args);
+	$post = $posts[0];
+	$ID = $post->ID;
+	$title = $post->post_title;
+	$content = $post->post_content;
+	$extrait = substr($content, 0, 140)."...";
+	return (object) [
+		'id'      => $ID,
+		'title'   => $title,
+		'content' => $content,
+		'extrait' => $extrait
+	];
+}
+
+// function get_posts_per_cat_limit($cat_id, $limit) {
+// 	$args = array(
+// 		"category" => $cat_id,
+// 		"orderby"  => 'date',
+// 		"order"    => 'DESC',
+// 		"posts_per_page"   => $limit,
+// 	);
+// 	$posts = get_posts($args);
+// 	$post = $posts[0];
+// 	$ID = $post->ID;
+// 	$title = $post->post_title;
+// 	$content = $post->post_content;
+// 	$extrait = substr($content, 0, 140)."...";
+// 	return (object) [
+// 		'id'      => $ID,
+// 		'title'   => $title,
+// 		'content' => $content,
+// 		'extrait' => $extrait
+// 	];
+// }
+
 if ( ! function_exists( 'bordeaux_theme_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.

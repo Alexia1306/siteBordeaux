@@ -1,0 +1,36 @@
+body {
+  div#page {
+    div#content {
+      div.main-div-left {
+         min-height: 500px;
+         background-color: blue;
+         section.couverture {
+           div.card {
+             img {
+               width: 100%;
+               height: auto;
+             }
+             div.card-img-overlay {
+               div {
+                 background-color: rgb(58, 74, 184);
+                 padding: 1em 3em;
+                 max-width: 50%;
+                 min-width: 30%;
+               }
+             }
+           }
+         }
+         section.actualite {
+           	div.card-container {
+              display: flex;
+
+            }
+         }
+      }
+      div.main-div-right {
+         min-height: 500px;
+         background-color: red;
+      }
+    }
+  }
+}
