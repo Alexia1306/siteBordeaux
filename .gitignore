@@ -4,6 +4,7 @@
 /sitemap.*
 /wp-config.php
 *.sql
+/wp-content/uploads/wp-sync-db
 
 
 .sass-cache
