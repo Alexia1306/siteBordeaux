@@ -18,6 +18,8 @@ get_header();
 <?php
 // debug(get_categories());
 $couv_posts = get_last_post_cat(10);
+$video_posts = get_last_post_cat(3);
+$annee_posts = get_last_post_cat(4);
 $img =  get_the_post_thumbnail($couv_posts->id);
 
 $actu_args = array(
@@ -55,6 +57,22 @@ $actu_posts = get_posts($actu_args);
     		</div>
   		</div>
   	<?php endforeach ?>
+	</div>
+</section>
+<section class="info row">
+	<div class="video col-12 col-sm-6" >
+		<h2><?= strtoupper(get_category(3)->name) ?></h2>
+		<div class="">
+			<h3><?php echo $video_posts->title; ?></h3>
+			<p><?php echo $video_posts->content; ?></p>
+		</div>
+	</div>
+	<div class="annee col-12 col-sm-6" >
+		<h2><?= strtoupper(get_category(4)->name) ?></h2>
+		<div class="">
+			<h3><?php echo $annee_posts->title; ?></h3>
+			<p><?php echo $annee_posts->content; ?></p>
+		</div>
 	</div>
 </section>
 
