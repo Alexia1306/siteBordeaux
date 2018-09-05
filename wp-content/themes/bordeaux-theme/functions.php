@@ -6,6 +6,11 @@
  *
  * @package bordeaux-theme
  */
+function debug($array) {
+	echo "<pre>";
+	print_r($array);
+	echo "</pre>";
+}
 
 if ( ! function_exists( 'bordeaux_theme_setup' ) ) :
 	/**

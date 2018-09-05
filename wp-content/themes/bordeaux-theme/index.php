@@ -14,46 +14,34 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-		<?php
-		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) :
-				?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
-				<?php
-			endif;
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
+<div class="col-12 col-sm-8" style="min-height:500px;background-color:red;">
 <?php
-get_sidebar();
-get_footer();
+$args = array(
+	"category" => 10,
+	"orderby"  => 'date',
+	"order"    => 'DESC',
+	"posts_per_page"   => 1,
+);
+$posts = get_posts($args);
+$post = $posts[0];
+$ID = $post->ID;
+$img =  get_the_post_thumbnail($ID);
+$title = $post->post_title;
+$content = $post->post_content;
+$extrait = substr($content, 0, 150);
+?>
+
+<div class="card bg-dark text-white">
+  <?= $img ?>
+  <div class="card-img-overlay">
+    <h5 class="card-title"><?= $title ?></h5>
+    <p class="card-text"><?= $extrait ?></p>
+  </div>
+</div>
+
+</div>
+<div class="col-12 col-sm-4" style="min-height:500px;background-color:blue;">
+
+</div>
+<?php
+// get_footer();

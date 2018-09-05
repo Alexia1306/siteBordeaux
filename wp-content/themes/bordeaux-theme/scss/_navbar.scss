@@ -1,0 +1,24 @@
+#site-navigation {
+    background-color: grey;
+
+    button.menu-toggle {
+        display: none;
+    }
+
+    div#primary-menu {
+        ul {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+
+            li {
+                list-style-type: none;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
